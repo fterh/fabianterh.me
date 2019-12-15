@@ -1,21 +1,33 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Theme from "../theme"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const Section = styled.div`
+  padding: 5rem 1rem;
+
+  h1 {
+    font-family: ${Theme.typography.fontFamily};
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-family: ${Theme.typography.fontFamilyMonospace};
+  }
+`
+
+const IndexPage = () => {
+  return (
+    <Layout centered>
+      <SEO title="Hello, World" />
+      <Section>
+        <h2>Hello, world.</h2>
+        <h1>I'm Fabian.</h1>
+      </Section>
+    </Layout>
+  )
+}
 
 export default IndexPage
