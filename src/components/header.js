@@ -8,6 +8,7 @@ import Theme, { Mixins } from "../theme"
 const Header = styled.header`
   width: 100%;
   border-bottom: 2px solid ${Theme.colors.border};
+  margin-bottom: 2rem;
 
   nav {
     max-width: 960px;
@@ -17,17 +18,24 @@ const Header = styled.header`
 `
 
 const NavItem = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0;
-  a ${props =>
-    props.gradiented
-      ? `{
-        ${Mixins.gradientedText}
-      }`
-      : `{
-    color: ${Theme.colors.text};
+  padding: 0 1rem;
+  display: inline;
+
+  a {
+    ${props =>
+      props.gradiented
+        ? `${Mixins.gradientedText}`
+        : `color: ${Theme.colors.text};`}
     text-decoration: none;
-  }`}
+
+    &.active,
+    &:hover {
+      color: ${Theme.colors.primary};
+      border-bottom: 2px solid ${Theme.colors.primary};
+    }
+  }
 `
 
 const _Header = ({ siteTitle }) => (
@@ -35,6 +43,11 @@ const _Header = ({ siteTitle }) => (
     <nav>
       <NavItem gradiented>
         <Link to="/">{siteTitle}</Link>
+      </NavItem>
+      <NavItem>
+        <Link to="/resume" activeClassName="active">
+          Resume
+        </Link>
       </NavItem>
     </nav>
   </Header>

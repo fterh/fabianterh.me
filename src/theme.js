@@ -12,9 +12,13 @@ const Theme = {
     footerText: `#eeeeee`,
     text: `#333333`,
   },
+  layout: {
+    maxWidth: `960px`,
+  },
   paddings: {
     footer: `1rem`,
     header: `1rem`,
+    body: `1rem`,
   },
   typography: {
     footerFontSize: `0.8rem`,
