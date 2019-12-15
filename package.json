@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "fabianterh.me",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Fabian Terh",
   "dependencies": {
     "@types/styled-components": "^4.4.1",
     "gatsby": "^2.18.8",
