@@ -1,12 +1,15 @@
 const Theme = {
   colors: {
     primary: `#ff512f`,
+    primaryDark: `#b33921`,
+    primaryLight: `#ff856d`,
     secondary: `#dd2476`,
+    complementary: `#22809F`,
     /* ~~~ Great barrier reef ~~~ */
     background: `#ffffff`,
+    border: `#eeeeee`,
     footerBackground: `#141e30`,
     footerText: `#eeeeee`,
-    headerBorder: `#eeeeee`,
     text: `#333333`,
   },
   paddings: {

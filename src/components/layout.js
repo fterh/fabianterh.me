@@ -39,6 +39,10 @@ const Footer = styled.footer`
   bottom: 0;
   padding: ${Theme.paddings.footer};
   background: ${Theme.colors.footerBackground};
+
+  a:hover {
+    color: ${Theme.colors.primaryLight};
+  }
 `
 
 const Layout = ({ centered, children }) => {

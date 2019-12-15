@@ -7,7 +7,7 @@ import Theme, { Mixins } from "../theme"
 
 const Header = styled.header`
   width: 100%;
-  border-bottom: 2px solid ${Theme.colors.headerBorder};
+  border-bottom: 2px solid ${Theme.colors.border};
 
   nav {
     max-width: 960px;
