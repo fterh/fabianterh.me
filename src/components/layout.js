@@ -25,10 +25,7 @@ const Background = styled.div`
 
 const Body = styled.div`
   flex: 1;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  padding: 0 1.0875rem 1.45rem;
 `
 
 const Layout = ({ centered, children }) => {
