@@ -3,36 +3,40 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-import Theme from "../theme"
+import Theme, { Mixins } from "../theme"
 
 const Header = styled.header`
   width: 100%;
   border-bottom: 2px solid ${Theme.colors.headerBorder};
 
-  div {
+  nav {
     max-width: 960px;
     margin: 0 auto;
     padding: ${Theme.paddings.header};
-
-    h2 {
-      font-size: 1.2rem;
-      margin: 0;
-
-      a {
-        color: ${Theme.colors.text};
-        text-decoration: none;
-      }
-    }
   }
+`
+
+const NavItem = styled.h2`
+  font-size: 1.2rem;
+  margin: 0;
+  a ${props =>
+    props.gradiented
+      ? `{
+        ${Mixins.gradientedText}
+      }`
+      : `{
+    color: ${Theme.colors.text};
+    text-decoration: none;
+  }`}
 `
 
 const _Header = ({ siteTitle }) => (
   <Header>
-    <div>
-      <h2 style={{ margin: 0 }}>
+    <nav>
+      <NavItem gradiented>
         <Link to="/">{siteTitle}</Link>
-      </h2>
-    </div>
+      </NavItem>
+    </nav>
   </Header>
 )
 

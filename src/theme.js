@@ -1,5 +1,8 @@
-export default {
+const Theme = {
   colors: {
+    primary: `#ff512f`,
+    secondary: `#dd2476`,
+    /* ~~~ Great barrier reef ~~~ */
     background: `#ffffff`,
     footerBackground: `#141e30`,
     footerText: `#eeeeee`,
@@ -16,3 +19,13 @@ export default {
     fontFamilyMonospace: `Roboto Mono, monospace`,
   },
 }
+
+export const Mixins = {
+  gradientedText: `
+    background: linear-gradient(${Theme.colors.primary}, ${Theme.colors.secondary});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  `,
+}
+
+export default Theme
