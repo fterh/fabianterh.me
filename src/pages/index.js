@@ -15,7 +15,6 @@ const Section = styled.div`
 
 const Name = styled.h1`
   ${Mixins.gradientedText}
-  color: pink;
   font-family: ${Theme.typography.fontFamily};
   font-size: 3rem;
 `

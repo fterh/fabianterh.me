@@ -16,14 +16,16 @@ import "../style.css"
 import Theme from "../theme"
 
 const Background = styled.div`
-  height: 100%;
-  background: ${Theme.colors.background}
-  );
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: ${Theme.colors.background};
 `
 
 const Body = styled.div`
-  margin: 0 auto;
+  flex: 1;
   max-width: 960px;
+  margin: 0 auto;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
 `
@@ -34,7 +36,6 @@ const Footer = styled.footer`
   font-size: ${Theme.typography.footerFontSize};
   text-align: center;
   width: 100%;
-  position: absolute;
   bottom: 0;
   padding: ${Theme.paddings.footer};
   background: ${Theme.colors.footerBackground};
