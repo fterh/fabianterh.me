@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithub,
   faLinkedin,
@@ -9,6 +8,7 @@ import styled from "styled-components"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
+import LinkCard from "../components/linkCard"
 import SEO from "../components/seo"
 import Theme, { Mixins } from "../theme"
 
@@ -26,20 +26,6 @@ const Name = styled.h1`
   font-size: 3rem;
 `
 
-const Card = styled.h3`
-  margin: 0 0 2rem 0;
-
-  a {
-    color: ${Theme.colors.primaryDark};
-    font-size: 1.2rem;
-    text-decoration: none;
-
-    &:hover {
-      border-bottom: 3px solid ${Theme.colors.primaryDark};
-    }
-  }
-`
-
 const IndexPage = () => {
   return (
     <Layout centered>
@@ -49,33 +35,15 @@ const IndexPage = () => {
         <Name>I'm Fabian.</Name>
         <Avatar />
         <div style={{ marginTop: `2rem` }}>
-          <Card>
-            <a href="https://github.com/fterh" target="_new">
-              <FontAwesomeIcon
-                icon={faGithub}
-                color={Theme.colors.primaryDark}
-              />{" "}
-              Github
-            </a>
-          </Card>
-          <Card>
-            <a href="https://linkedin.com/in/fabianterh/" target="_new">
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                color={Theme.colors.primaryDark}
-              />{" "}
-              Linkedin
-            </a>
-          </Card>
-          <Card>
-            <a href="https://medium.com/@fabianterh" target="_new">
-              <FontAwesomeIcon
-                icon={faMedium}
-                color={Theme.colors.primaryDark}
-              />{" "}
-              Blog
-            </a>
-          </Card>
+          <LinkCard icon={faGithub} url="https://github.com/fterh">
+            Github
+          </LinkCard>
+          <LinkCard icon={faLinkedin} url="https://linkedin.com/in/fabianterh/">
+            Linkedin
+          </LinkCard>
+          <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+            Blog
+          </LinkCard>
         </div>
       </Section>
     </Layout>
