@@ -7,12 +7,13 @@ import {
 import React from "react"
 import styled from "styled-components"
 
+import Avatar from "../components/avatar"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme, { Mixins } from "../theme"
 
 const Section = styled.div`
-  padding: 5rem 1rem;
+  padding: 0 1rem;
 
   h2 {
     font-family: ${Theme.typography.fontFamilyMonospace};
@@ -46,7 +47,8 @@ const IndexPage = () => {
       <Section>
         <h2>Hello world.</h2>
         <Name>I'm Fabian.</Name>
-        <div style={{ marginTop: `4rem` }}>
+        <Avatar />
+        <div style={{ marginTop: `2rem` }}>
           <Card>
             <a href="https://github.com/fterh" target="_new">
               <FontAwesomeIcon
