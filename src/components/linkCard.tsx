@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Theme from "../theme"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const Card = styled.h3`
   margin: 0 0 2rem 0;
@@ -19,7 +20,19 @@ const Card = styled.h3`
   }
 `
 
-export default class LinkCard extends React.Component {
+type LinkCardProps = {
+  icon: IconProp
+  url: string
+}
+
+type LinkCardState = {
+  hover: boolean
+}
+
+export default class LinkCard extends React.Component<
+  LinkCardProps,
+  LinkCardState
+> {
   constructor(props) {
     super(props)
     this.state = { hover: false }
