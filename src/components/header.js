@@ -45,7 +45,7 @@ const _Header = ({ siteTitle }) => (
         <Link to="/">{siteTitle}</Link>
       </NavItem>
       <NavItem>
-        <Link to="/resume/" activeClassName="active">
+        <Link to="/resume" activeClassName="active">
           Resume
         </Link>
       </NavItem>
