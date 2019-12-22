@@ -24,11 +24,7 @@ const _Footer = () => (
     <a href="https://www.gatsbyjs.org" target="_new">
       Gatsby
     </a>
-    {" & "}
-    <a href="https://www.styled-components.com/" target="_new">
-      styled components
-    </a>
-    .
+    . Written in Typescript + Javascript. ❤️
   </Footer>
 )
 
