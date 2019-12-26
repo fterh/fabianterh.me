@@ -48,7 +48,7 @@ I write regularly on Medium. My articles have been published by various publicat
 
 **National University of Singapore**
 
-- Computer Science (Minor) - GPA: 4.82/5.0
+- Computer Science (Minor) - GPA: 4.76/5.0
 - Bachelor of Laws - Second-Upper Honors
 
 <!-- -->
@@ -60,8 +60,8 @@ I write regularly on Medium. My articles have been published by various publicat
 
 ### Teaching Courses
 
-- **2019:** CS1010S Programming Methodology | Tutor (student feedback score: 5.0/5.0)
-- **2019:** CS1010E Programming Methodology | Tutor (ongoing)
+- **2019:** CS1010S Programming Methodology | Tutor
+- **2019:** CS1010E Programming Methodology | Tutor
 - **2019:** Code in the Community | Volunteer TA
   - Taught Python to students (Google-sponsored initiative for free coding classes to children).
 
