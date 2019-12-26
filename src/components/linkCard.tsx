@@ -3,7 +3,11 @@ import React from "react"
 import styled from "styled-components"
 
 import Theme from "../theme"
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { config, IconProp } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+
+// Fix huge icon flash: https://github.com/FortAwesome/react-fontawesome/issues/234
+config.autoAddCss = false
 
 const Card = styled.h3`
   margin: 0 0 2rem 0;
