@@ -25,12 +25,17 @@ I write regularly on Medium. My articles have been published by various publicat
 
 #### Aug – Dec 2019, Singapore
 
+I worked on Booyah, a mobile game live-streaming application.
+
 - Improved app responsiveness in poor network conditions. Optimized multiple image downloads in a collection view by implementing a priority queue to prioritize visible views.
+- Designed an infinite scroll view and optimized it for performance and user experience.
 - Profiled the performance of data-persistence utility components used across multiple teams and applications to uncover bottlenecks. Presented my findings at an internal knowledge-sharing session with company-wide iOS engineers.
 
 ### ReferralCandy: _Product Engineering Intern (Full Stack)_
 
 #### May – Aug 2019, Singapore
+
+I worked on CandyBar, a digital punch card loyalty program.
 
 - Collaborated with product managers and designers to build, QA, and release product features in weekly sprints.
 - Fixed bugs, wrote tests, and improved documentation to enhance the quality of the codebase.
