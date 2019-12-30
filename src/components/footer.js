@@ -18,14 +18,12 @@ const Footer = styled.footer`
   }
 `
 
-const _Footer = () => (
+export default () => (
   <Footer>
-    Built with{" "}
+    Built with ❤️ with{" "}
     <a href="https://www.gatsbyjs.org" target="_new">
       Gatsby
     </a>
-    . Written in Typescript + Javascript. ❤️
+    .
   </Footer>
 )
-
-export default _Footer
