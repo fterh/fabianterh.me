@@ -11,6 +11,7 @@ const Theme = {
     footerBackground: `#141e30`,
     footerText: `#eeeeee`,
     text: `#333333`,
+    textSecondary: `rgba(0, 0, 0, 0.54)`,
   },
   layout: {
     maxWidth: `960px`,

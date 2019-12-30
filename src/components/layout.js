@@ -28,6 +28,12 @@ const Body = styled.div`
   padding: 0 1.0875rem 1.45rem;
 `
 
+const Main = styled.main`
+  margin: auto;
+  padding: 0 ${Theme.paddings.body};
+  max-width: ${Theme.layout.maxWidth};
+`
+
 const Layout = ({ centered, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -44,7 +50,7 @@ const Layout = ({ centered, children }) => {
     <Background>
       <Header siteTitle={data.site.siteMetadata.title_short} />
       <Body>
-        <main style={centered && { textAlign: `center` }}>{children}</main>
+        <Main style={centered && { textAlign: `center` }}>{children}</Main>
       </Body>
       <Footer />
     </Background>
