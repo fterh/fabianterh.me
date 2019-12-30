@@ -20,7 +20,11 @@ const Footer = styled.footer`
 
 export default () => (
   <Footer>
-    Built with ❤️ with{" "}
+    Built with{" "}
+    <span role="img" aria-label="love">
+      ❤️
+    </span>{" "}
+    with{" "}
     <a href="https://www.gatsbyjs.org" target="_new">
       Gatsby
     </a>
