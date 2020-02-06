@@ -374,6 +374,14 @@ const TestPage = () => {
                 <Grid item>
                   <ResumeSection title="Projects">
                     <Experience
+                      company="heimdall"
+                      metadata="Jan 2020 - Present"
+                      points={[
+                        `Self-managed email alias/forwarding service built on the Serverless framework running on AWS (Lambda, SES, S3).`,
+                      ]}
+                      url="https://github.com/fterh/heimdall"
+                    />
+                    <Experience
                       company="rewardsmany"
                       metadata="Oct - Nov 2019"
                       description="Partnered StaffAny (a workforce management startup) to develop a prototype to improve employee performance."
