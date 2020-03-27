@@ -17,6 +17,7 @@ const Section = styled.div`
 
   h2 {
     font-family: ${Theme.typography.fontFamilyMonospace};
+    margin-bottom: 0.5rem;
   }
 `
 
@@ -31,7 +32,7 @@ const IndexPage = () => {
     <Layout centered>
       <SEO title="Home" />
       <Section>
-        <h2>Hello world.</h2>
+        <h2>Hello world!</h2>
         <Name>I'm Fabian.</Name>
         <Avatar />
         <div style={{ marginTop: `2rem` }}>

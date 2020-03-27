@@ -58,7 +58,8 @@ export default class LinkCard extends React.Component<
             color={
               this.state.hover ? Theme.colors.primary : Theme.colors.primaryDark
             }
-          />{" "}
+          />
+          <span>&nbsp;</span>
           {this.props.children}
         </a>
       </Card>
