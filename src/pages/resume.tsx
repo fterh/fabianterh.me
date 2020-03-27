@@ -136,7 +136,7 @@ const Experience = (props: ExperienceProps) => {
       {points && (
         <ul>
           {points.map((point, index) => (
-            <li key={index}>{point}</li>
+            <li key={index} dangerouslySetInnerHTML={{ __html: point }}></li>
           ))}
         </ul>
       )}
@@ -162,7 +162,7 @@ const TestPage = () => {
             </h1>
             <Button
               color="secondary"
-              href="https://drive.google.com/open?id=1PYYS5NzsHR7AliAlwbB8bU72aFE0ngxU"
+              href="https://docs.google.com/document/d/1Fh3vScOLEIvB2ekL8WJ9T2eCwB_8xVKgx8zSvDHxp24/edit"
               size="small"
               style={{ float: "right" }}
               target="_new"
@@ -178,6 +178,16 @@ const TestPage = () => {
               <Grid container direction="column" spacing={2}>
                 <Grid item>
                   <ResumeSection title="Background">
+                    <p>
+                      <strong>
+                        Passionate about building amazing, delightful products
+                        that make a difference ❤️.
+                      </strong>
+                    </p>
+                    <p>
+                      Open-source contributor. Writer on Medium. Intriuged by
+                      tough problems, and always keen to learn.
+                    </p>
                     <p>
                       I'm a self-driven, motivated, and independent learner who
                       discovered my passion for programming and software
@@ -199,30 +209,9 @@ const TestPage = () => {
                         I write regularly on Medium.
                       </a>{" "}
                       My articles have been published by various publications
-                      and distributed by Medium curators.
+                      and distributed by Medium curators in a variety of topics
+                      from programming to software engineering.
                     </p>
-                    <ul>
-                      <li>
-                        <a
-                          href="https://medium.com/@fabianterh/how-to-improve-your-data-structures-algorithms-and-problem-solving-skills-af50971cba60"
-                          target="_new"
-                        >
-                          How to improve your data structures, algorithms, and
-                          problem-solving skills
-                        </a>{" "}
-                        (>85,000 views)
-                      </li>
-                      <li>
-                        <a
-                          href="https://medium.com/@fabianterh/how-to-solve-the-knapsack-problem-with-dynamic-programming-eb88c706d3cf"
-                          target="_new"
-                        >
-                          How to solve the Knapsack Problem with dynamic
-                          programming
-                        </a>{" "}
-                        (>63,000 views)
-                      </li>
-                    </ul>
                   </ResumeSection>
                 </Grid>
                 <Grid item>
@@ -230,10 +219,11 @@ const TestPage = () => {
                     <p>
                       <strong>National University of Singapore</strong>
                     </p>
-                    <ul>
-                      <li>Computer Science (Minor) - GPA: 4.76/5.0</li>
-                      <li>Bachelor of Laws - Second-Upper Honors</li>
-                    </ul>
+                    <p>
+                      Computer Science (Minor) - GPA: 4.76/5.0
+                      <br />
+                      Bachelor of Laws - Second-Upper Honors
+                    </p>
                     <ul>
                       <li>
                         <strong>2019:</strong> Dean’s List (top 10%)
@@ -259,22 +249,15 @@ const TestPage = () => {
                     </p>
                     <ul>
                       <li>
-                        <strong>2019:</strong> CS1010S Programming Methodology |
-                        Tutor
+                        <strong>2019:</strong> CS1010S Programming Methodology
                       </li>
                       <li>
                         <strong>2019: </strong> CS1010E Programming Methodology
-                        | Tutor
                       </li>
                       <li>
-                        <strong>2019: </strong> Code in the Community |
-                        Volunteer TA
-                        <ul>
-                          <li>
-                            Taught Python to students (Google-sponsored
-                            initiative for free coding classes to children).
-                          </li>
-                        </ul>
+                        <strong>2019: </strong> Code in the Community (taught
+                        Python to students under a Google-sponsored initiative
+                        for free coding classes)
                       </li>
                     </ul>
                     <p className="marginless">
@@ -300,15 +283,15 @@ const TestPage = () => {
                     <ul>
                       <li>
                         <strong>Languages:</strong> CSS, HTML, Java, JavaScript
-                        (Node.js), Python, SQL, Swift, TypeScript
+                        (Node.js), Python, Swift, TypeScript
                       </li>
                       <li>
                         <strong>Frameworks/libraries:</strong> Flow, iOS SDK,
                         Jest, React, Redux, Redux-Saga
                       </li>
                       <li>
-                        <strong>Others:</strong> AWS, Continuous Integration &
-                        Delivery, Git, Unit Testing
+                        <strong>Others:</strong> AWS, Continuous Integration
+                        &amp; Delivery, Git
                       </li>
                       <li>
                         <a
@@ -377,7 +360,8 @@ const TestPage = () => {
                       company="heimdall"
                       metadata="Jan 2020 - Present"
                       points={[
-                        `Self-managed email alias/forwarding service built on the Serverless framework running on AWS (Lambda, SES, S3).`,
+                        `Self-managed email alias service built with Serverless to run on AWS (DynamoDB, Lambda, SES, S3).`,
+                        `<a href="https://news.ycombinator.com/item?id=22210782" target="_new">Showcased</a> on Hacker News.`,
                       ]}
                       url="https://github.com/fterh/heimdall"
                     />
