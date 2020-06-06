@@ -314,6 +314,13 @@ const TestPage = () => {
                 <Grid item>
                   <ResumeSection title="Professional Experience">
                     <Experience
+                      company="Facebook"
+                      role="Software Engineer"
+                      metadata="May 2020 - now, San Francisco Bay Area"
+                      description="I work on the Search Discovery team."
+                      points={[]}
+                    />
+                    <Experience
                       company="Sea (Garena)"
                       role="Software Engineering Intern (iOS)"
                       metadata="Aug - Dec 2019, Singapore"
