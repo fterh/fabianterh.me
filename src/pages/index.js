@@ -2,6 +2,7 @@ import {
   faGithub,
   faLinkedin,
   faMedium,
+  faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
 import React from "react"
 import styled from "styled-components"
@@ -36,14 +37,17 @@ const IndexPage = () => {
         <Name>I'm Fabian.</Name>
         <Avatar />
         <div style={{ marginTop: `2rem` }}>
+          <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+            Blog
+          </LinkCard>
+          <LinkCard icon={faTwitterSquare} url="https://twitter.com/fabianterh">
+            Twitter
+          </LinkCard>
           <LinkCard icon={faGithub} url="https://github.com/fterh">
             Github
           </LinkCard>
           <LinkCard icon={faLinkedin} url="https://linkedin.com/in/fabianterh/">
             Linkedin
-          </LinkCard>
-          <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-            Blog
           </LinkCard>
         </div>
       </Section>
