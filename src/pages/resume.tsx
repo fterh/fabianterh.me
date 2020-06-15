@@ -180,13 +180,13 @@ const TestPage = () => {
                   <ResumeSection title="Background">
                     <p>
                       <strong>
-                        Passionate about building amazing, delightful products
-                        that make a difference ❤️.
+                        Passionate about building delightful and impactful
+                        products that make a difference ❤️.
                       </strong>
                     </p>
                     <p>
-                      Open-source contributor. Writer on Medium. Intriuged by
-                      tough problems, and always keen to learn.
+                      Open-source contributor. Writer on Medium. Excited about
+                      tough problems, and always seeking to learn something new.
                     </p>
                     <p>
                       I'm a self-driven, motivated, and independent learner who
