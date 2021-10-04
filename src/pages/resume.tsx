@@ -314,11 +314,21 @@ const TestPage = () => {
                 <Grid item>
                   <ResumeSection title="Professional Experience">
                     <Experience
+                      company="WhatsApp"
+                      role="Software Engineer"
+                      metadata="July 2021 - now, SF Bay Area"
+                      points={[
+                        `I'm on the WhatsApp Messaging (Chat) Infra team`
+                      ]}
+                    />
+                    <Experience
                       company="Facebook"
                       role="Software Engineer"
-                      metadata="May 2020 - now, San Francisco Bay Area"
-                      description="I work on the Search Discovery team."
-                      points={[]}
+                      metadata="May 2020 - July 2021, SF Bay Area"
+                      points={[
+                        `Rolled out Groups Admin Tagging from 70M to 411M groups globally as part of a cross-functional effort`,
+                        `Drove the effort to achieve 100% E2E, as well as unit and integration, testing`
+                      ]}
                     />
                     <Experience
                       company="Sea (Garena)"
