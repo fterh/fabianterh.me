@@ -18,7 +18,42 @@ const Section = styled.div`
 
   h2 {
     font-family: ${Theme.typography.fontFamilyMonospace};
-    margin-bottom: 0.5rem;
+  }
+
+  div.typewriter {
+    display: flex;
+    justify-content: center;
+  }
+
+  div.typewriter div {
+    text-align: ltr;
+  }
+
+  div.typewriter h2 {
+    margin: 0 auto 0.5rem auto;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 1s steps(12, end), blink-cursor 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-cursor {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
   }
 `
 
@@ -33,7 +68,11 @@ const IndexPage = () => {
     <Layout centered>
       <SEO title="Home" />
       <Section>
-        <h2>Hello world!</h2>
+        <div className="typewriter">
+          <div>
+            <h2>Hello world!</h2>
+          </div>
+        </div>
         <Name>I'm Fabian.</Name>
         <Avatar />
         <div style={{ marginTop: `2rem` }}>
