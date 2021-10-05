@@ -24,7 +24,7 @@ const NavItem = styled.h2`
   display: inline;
 
   a {
-    ${props =>
+    ${(props) =>
       props.gradiented
         ? `${Mixins.gradientedText}`
         : `color: ${Theme.colors.text};`}
