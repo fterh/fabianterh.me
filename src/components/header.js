@@ -49,6 +49,11 @@ const _Header = ({ siteTitle }) => (
           Resume
         </Link>
       </NavItem>
+      <NavItem>
+        <Link to="/blog" activeClassName="active">
+          Blog
+        </Link>
+      </NavItem>
     </nav>
   </Header>
 )
