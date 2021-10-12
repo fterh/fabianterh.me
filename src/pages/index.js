@@ -11,7 +11,7 @@ import Avatar from "../components/avatar"
 import Layout from "../components/layout"
 import LinkCard from "../components/linkCard"
 import SEO from "../components/seo"
-import Theme, { Mixins } from "../theme"
+import Theme, { Breakpoints, Mixins } from "../theme"
 
 const Section = styled.div`
   padding: 0 1rem;
@@ -57,6 +57,31 @@ const Section = styled.div`
   }
 `
 
+const FirstPart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: ${Breakpoints.tablet}) {
+    flex-direction: column;
+  }
+`
+
+const AvatarWrapper = styled.div`
+  height: 300px;
+  width: 300px;
+  margin-left: 50px;
+
+  @media (max-width: ${Breakpoints.mobile}) {
+    height: 200px;
+    width: 200px;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}) {
+    margin: 0;
+  }
+`
+
 const Name = styled.h1`
   ${Mixins.gradientedText}
   font-family: ${Theme.typography.fontFamily};
@@ -68,13 +93,19 @@ const IndexPage = () => {
     <Layout centered>
       <SEO title="Home" />
       <Section>
-        <div className="typewriter">
+        <FirstPart>
           <div>
-            <h2>Hello world!</h2>
+            <div className="typewriter">
+              <div>
+                <h2>Hello world!</h2>
+              </div>
+            </div>
+            <Name>I'm Fabian.</Name>
           </div>
-        </div>
-        <Name>I'm Fabian.</Name>
-        <Avatar />
+          <AvatarWrapper>
+            <Avatar />
+          </AvatarWrapper>
+        </FirstPart>
         <div style={{ marginTop: `2rem` }}>
           <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
             Blog
