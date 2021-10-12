@@ -1,3 +1,5 @@
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
 import {
   faGithub,
   faLinkedin,
@@ -5,7 +7,7 @@ import {
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
 import React from "react"
-import styled from "styled-components"
+import { styled } from "@mui/material/styles"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
@@ -13,7 +15,7 @@ import LinkCard from "../components/linkCard"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
-const Section = styled.div`
+const Section = styled(`div`)`
   padding: 0 1rem;
 
   h2 {
@@ -57,7 +59,7 @@ const Section = styled.div`
   }
 `
 
-const FirstPart = styled.div`
+const IntroPart = styled(`div`)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +69,7 @@ const FirstPart = styled.div`
   }
 `
 
-const AvatarWrapper = styled.div`
+const AvatarWrapper = styled(`div`)`
   height: 300px;
   width: 300px;
   margin-left: 50px;
@@ -82,10 +84,26 @@ const AvatarWrapper = styled.div`
   }
 `
 
-const Name = styled.h1`
+const Name = styled(`h1`)`
   ${Mixins.gradientedText}
   font-family: ${Theme.typography.fontFamily};
   font-size: 3rem;
+`
+
+const LinksSection = styled(`div`)`
+  margin-top: 2rem;
+`
+
+const LinksCardContent = styled(CardContent)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: ${Breakpoints.mobile}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `
 
 const IndexPage = () => {
@@ -93,7 +111,7 @@ const IndexPage = () => {
     <Layout centered>
       <SEO title="Home" />
       <Section>
-        <FirstPart>
+        <IntroPart>
           <div>
             <div className="typewriter">
               <div>
@@ -105,21 +123,34 @@ const IndexPage = () => {
           <AvatarWrapper>
             <Avatar />
           </AvatarWrapper>
-        </FirstPart>
-        <div style={{ marginTop: `2rem` }}>
-          <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-            Blog
-          </LinkCard>
-          <LinkCard icon={faTwitterSquare} url="https://twitter.com/fabianterh">
-            Twitter
-          </LinkCard>
-          <LinkCard icon={faGithub} url="https://github.com/fterh">
-            Github
-          </LinkCard>
-          <LinkCard icon={faLinkedin} url="https://linkedin.com/in/fabianterh/">
-            Linkedin
-          </LinkCard>
-        </div>
+        </IntroPart>
+        <LinksSection>
+          <Card variant="outlined">
+            <LinksCardContent>
+              <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+                Blog
+              </LinkCard>
+              <LinkCard
+                icon={faTwitterSquare}
+                url="https://twitter.com/fabianterh"
+              >
+                Twitter
+              </LinkCard>
+              <LinkCard icon={faGithub} url="https://github.com/fterh">
+                Github
+              </LinkCard>
+              <LinkCard
+                icon={faLinkedin}
+                url="https://linkedin.com/in/fabianterh/"
+              >
+                Linkedin
+              </LinkCard>
+            </LinksCardContent>
+
+            {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
+            <CardContent sx={{ display: `none` }}></CardContent>
+          </Card>
+        </LinksSection>
       </Section>
     </Layout>
   )
