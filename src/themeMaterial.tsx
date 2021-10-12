@@ -1,7 +1,7 @@
-import { createMuiTheme } from "@material-ui/core/styles"
+import { createTheme } from "@mui/system"
 import Theme from "./theme"
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: {
       dark: Theme.colors.priamaryDark,

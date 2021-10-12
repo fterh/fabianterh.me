@@ -45,11 +45,6 @@ const _Header = ({ siteTitle }) => (
         <Link to="/">{siteTitle}</Link>
       </NavItem>
       <NavItem>
-        <Link to="/resume" activeClassName="active">
-          Resume
-        </Link>
-      </NavItem>
-      <NavItem>
         <Link to="/blog" activeClassName="active">
           Blog
         </Link>
