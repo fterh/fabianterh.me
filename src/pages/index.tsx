@@ -6,7 +6,7 @@ import {
   faMedium,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
-import { graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import React from "react"
 import { styled } from "@mui/material/styles"
 
@@ -122,7 +122,6 @@ const ContentSection = styled(`div`)`
     margin: 0;
   }
 `
-
 const IndexPage = ({ data }) => {
   return (
     <Layout>
@@ -136,10 +135,24 @@ const IndexPage = ({ data }) => {
               </div>
             </Typewriter>
             <Name>I'm Fabian.</Name>
-            <ContentSection
-              dangerouslySetInnerHTML={{
-                __html: data.allMarkdownRemark.nodes[0].html,
-              }}
+            <StaticQuery
+              query={graphql`
+                query {
+                  markdownRemark(frontmatter: { title: { eq: "About" } }) {
+                    frontmatter {
+                      title
+                    }
+                    html
+                  }
+                }
+              `}
+              render={(data) => (
+                <ContentSection
+                  dangerouslySetInnerHTML={{
+                    __html: data.markdownRemark.html,
+                  }}
+                />
+              )}
             />
           </div>
 
@@ -181,16 +194,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query {
-    allMarkdownRemark {
-      nodes {
-        frontmatter {
-          title
-        }
-        html
-      }
-    }
-  }
-`
