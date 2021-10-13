@@ -36,4 +36,9 @@ export const Mixins = {
   `,
 }
 
+export const Breakpoints = {
+  mobile: `480px`,
+  tablet: `768px`,
+}
+
 export default Theme

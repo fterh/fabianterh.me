@@ -10,10 +10,12 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
 
 const Card = styled.h3`
-  margin: 0 0 2rem 0;
+  margin: 0;
+  padding: 0.5rem 1rem;
 
   a {
     color: ${Theme.colors.primaryDark};
+    display: flex;
     font-size: 1.2rem;
     text-decoration: none;
 

@@ -2,9 +2,8 @@ import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
-import Card from "@material-ui/core/Card"
-
-import { CardContent } from "@material-ui/core"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme from "../theme"
