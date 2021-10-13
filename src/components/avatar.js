@@ -6,7 +6,7 @@ const Image = () => {
     <StaticImage
       alt="avatar"
       src="../images/avatar.jpg"
-      style={{ borderRadius: `10px` }}
+      imgStyle={{ borderRadius: `5%` }}
       placeholder="blurred"
     />
   )
