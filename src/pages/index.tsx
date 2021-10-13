@@ -71,6 +71,12 @@ const IntroPart = styled(`div`)`
   @media (max-width: ${Breakpoints.tablet}) {
     flex-direction: column;
   }
+
+  > div {
+    @media (min-width: ${Breakpoints.tablet}) {
+      width: 50%;
+    }
+  }
 `
 
 const AvatarWrapper = styled(`div`)`
@@ -126,7 +132,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <Section>
         <IntroPart>
-          <div style={{ width: `50%` }}>
+          <div>
             <div className="typewriter">
               <div>
                 <h2>Hello world!</h2>
