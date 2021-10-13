@@ -128,7 +128,7 @@ const ContentSection = styled(`div`)`
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout centered>
+    <Layout>
       <SEO title="Home" />
       <Section>
         <IntroPart>
