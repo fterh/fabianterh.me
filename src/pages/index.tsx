@@ -122,7 +122,7 @@ const ContentSection = styled(`div`)`
     margin: 0;
   }
 `
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />

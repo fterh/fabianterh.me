@@ -4,7 +4,7 @@ import Theme from "./theme"
 export default createTheme({
   palette: {
     primary: {
-      dark: Theme.colors.priamaryDark,
+      dark: Theme.colors.primaryDark,
       light: Theme.colors.primaryLight,
       main: Theme.colors.primary,
     },

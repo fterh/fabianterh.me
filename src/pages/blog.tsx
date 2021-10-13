@@ -40,7 +40,7 @@ const buildMediumUrl = (username: string, uniqueSlug: string): string => {
   return baseMediumUrl + `@${username}/${uniqueSlug}`
 }
 
-const Page = ({ data }) => {
+const Page = ({ data }: { data: any }) => {
   const posts = data.allMediumPost.edges
 
   return (
@@ -53,7 +53,7 @@ const Page = ({ data }) => {
         personal projects on topics I couldn't find clear answers to. Today, I
         write broadly about things I believe will add value to the world 🌎.
       </p>
-      {posts.map((_post) => {
+      {posts.map((_post: any) => {
         const post = _post.node
         const tags: { name: string }[] = post.virtuals.tags
 
