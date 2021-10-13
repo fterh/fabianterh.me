@@ -20,21 +20,18 @@ const Section = styled(`div`)`
   font-size: 1.2rem;
   text-align: left;
   padding: 0 1rem;
+`
 
-  h2 {
-    font-family: ${Theme.typography.fontFamilyMonospace};
-  }
+const Typewriter = styled(`div`)`
+  display: flex;
+  justify-content: center;
 
-  div.typewriter {
-    display: flex;
-    justify-content: center;
-  }
-
-  div.typewriter div {
+  > div {
     text-align: ltr;
   }
 
-  div.typewriter h2 {
+  > div > h2 {
+    font-family: ${Theme.typography.fontFamilyMonospace};
     margin: 0 auto 0.5rem auto;
     border-right: 0.15em solid orange;
     white-space: nowrap;
@@ -133,11 +130,11 @@ const IndexPage = ({ data }) => {
       <Section>
         <IntroPart>
           <div className="text-section">
-            <div className="typewriter">
+            <Typewriter>
               <div>
                 <h2>Hello world!</h2>
               </div>
-            </div>
+            </Typewriter>
             <Name>I'm Fabian.</Name>
             <ContentSection
               dangerouslySetInnerHTML={{
