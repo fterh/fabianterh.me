@@ -72,7 +72,7 @@ const IntroPart = styled(`div`)`
     flex-direction: column;
   }
 
-  > div {
+  > div.text-section {
     @media (min-width: ${Breakpoints.tablet}) {
       width: 50%;
     }
@@ -132,7 +132,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <Section>
         <IntroPart>
-          <div>
+          <div className="text-section">
             <div className="typewriter">
               <div>
                 <h2>Hello world!</h2>
