@@ -6,13 +6,14 @@ import {
   faMedium,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
-import { StaticQuery, graphql } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import { styled } from "@mui/material/styles"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
 import LinkCard from "../components/linkCard"
+import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
@@ -115,80 +116,67 @@ const LinksCardContent = styled(CardContent)`
   }
 `
 
-const ContentSection = styled(`div`)`
-  padding: 1rem 0;
-
-  p {
-    margin: 0;
-  }
-`
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Section>
-        <IntroPart>
-          <div className="text-section">
-            <Typewriter>
-              <div>
-                <h2>Hello world!</h2>
-              </div>
-            </Typewriter>
-            <Name>I'm Fabian.</Name>
-            <StaticQuery
-              query={graphql`
-                query {
-                  markdownRemark(frontmatter: { title: { eq: "About" } }) {
-                    frontmatter {
-                      title
-                    }
-                    html
+      <IntroPart>
+        <div className="text-section">
+          <Typewriter>
+            <div>
+              <h2>Hello world!</h2>
+            </div>
+          </Typewriter>
+          <Name>I'm Fabian.</Name>
+          <StaticQuery
+            query={graphql`
+              query {
+                markdownRemark(frontmatter: { title: { eq: "About" } }) {
+                  frontmatter {
+                    title
                   }
+                  html
                 }
-              `}
-              render={(data) => (
-                <ContentSection
-                  dangerouslySetInnerHTML={{
-                    __html: data.markdownRemark.html,
-                  }}
-                />
-              )}
-            />
-          </div>
+              }
+            `}
+            render={(data) => {
+              return <MarkdownContent htmlContent={data.markdownRemark.html} />
+            }}
+          />
+        </div>
 
-          <AvatarWrapper>
-            <Avatar />
-          </AvatarWrapper>
-        </IntroPart>
+        <AvatarWrapper>
+          <Avatar />
+        </AvatarWrapper>
+      </IntroPart>
 
-        <LinksSection>
-          <Card variant="outlined">
-            <LinksCardContent>
-              <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-                Blog
-              </LinkCard>
-              <LinkCard
-                icon={faTwitterSquare}
-                url="https://twitter.com/fabianterh"
-              >
-                Twitter
-              </LinkCard>
-              <LinkCard icon={faGithub} url="https://github.com/fterh">
-                Github
-              </LinkCard>
-              <LinkCard
-                icon={faLinkedin}
-                url="https://linkedin.com/in/fabianterh/"
-              >
-                Linkedin
-              </LinkCard>
-            </LinksCardContent>
+      <LinksSection>
+        <Card variant="outlined">
+          <LinksCardContent>
+            <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+              Blog
+            </LinkCard>
+            <LinkCard
+              icon={faTwitterSquare}
+              url="https://twitter.com/fabianterh"
+            >
+              Twitter
+            </LinkCard>
+            <LinkCard icon={faGithub} url="https://github.com/fterh">
+              Github
+            </LinkCard>
+            <LinkCard
+              icon={faLinkedin}
+              url="https://linkedin.com/in/fabianterh/"
+            >
+              Linkedin
+            </LinkCard>
+          </LinksCardContent>
 
-            {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
-            <CardContent sx={{ display: `none` }}></CardContent>
-          </Card>
-        </LinksSection>
-      </Section>
+          {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
+          <CardContent sx={{ display: `none` }}></CardContent>
+        </Card>
+      </LinksSection>
     </Layout>
   )
 }
