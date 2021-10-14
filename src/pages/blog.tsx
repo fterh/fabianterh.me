@@ -1,9 +1,8 @@
+import { Card, CardContent, Typography } from "@mui/material"
 import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme from "../theme"
@@ -47,12 +46,12 @@ const Page = ({ data }: { data: any }) => {
     <Layout>
       <SEO title="Writings" />
       <h2>Showcase of my thought bytes.</h2>
-      <p>
+      <Typography mb={1}>
         I started out writing articles on LeetCode-style questions to help me
         learn better. Later on, I ventured into technical articles on my
         personal projects on topics I couldn't find clear answers to. Today, I
         write broadly about things I believe will add value to the world 🌎.
-      </p>
+      </Typography>
       {posts.map((_post: any) => {
         const post = _post.node
         const tags: { name: string }[] = post.virtuals.tags

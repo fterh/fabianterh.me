@@ -15,4 +15,8 @@ export default createTheme({
       primary: Theme.colors.text,
     },
   },
+  spacing: (factor: number) => `${factor}rem`,
+  typography: {
+    fontFamily: "Open Sans, sans-serif",
+  },
 })
