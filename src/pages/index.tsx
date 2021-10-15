@@ -6,13 +6,14 @@ import {
   faMedium,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
-import { StaticQuery, graphql } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import { styled } from "@mui/material/styles"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
 import LinkCard from "../components/linkCard"
+import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
@@ -115,13 +116,6 @@ const LinksCardContent = styled(CardContent)`
   }
 `
 
-const ContentSection = styled(`div`)`
-  padding: 1rem 0;
-
-  p {
-    margin: 0;
-  }
-`
 const IndexPage = () => {
   return (
     <Layout>
@@ -147,11 +141,7 @@ const IndexPage = () => {
                 }
               `}
               render={(data) => (
-                <ContentSection
-                  dangerouslySetInnerHTML={{
-                    __html: data.markdownRemark.html,
-                  }}
-                />
+                <MarkdownContent htmlContent={data.markdownRemark.html} />
               )}
             />
           </div>
@@ -184,7 +174,7 @@ const IndexPage = () => {
               </LinkCard>
             </LinksCardContent>
 
-            {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
+            {/*Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
             <CardContent sx={{ display: `none` }}></CardContent>
           </Card>
         </LinksSection>
