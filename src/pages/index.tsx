@@ -17,12 +17,6 @@ import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
-const Section = styled(`div`)`
-  font-size: 1.2rem;
-  text-align: left;
-  padding: 0 1rem;
-`
-
 const Typewriter = styled(`div`)`
   display: flex;
   justify-content: center;
@@ -127,7 +121,7 @@ const IndexPage = () => {
               <h2>Hello world!</h2>
             </div>
           </Typewriter>
-          <Name>I'm Fabian.</Name>
+          <Name>I&apos;m Fabian.</Name>
           <StaticQuery
             query={graphql`
               query {

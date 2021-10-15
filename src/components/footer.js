@@ -18,7 +18,7 @@ const Footer = styled.footer`
   }
 `
 
-export default () => (
+const _Footer = () => (
   <Footer>
     Built with{" "}
     <span role="img" aria-label="love">
@@ -31,3 +31,5 @@ export default () => (
     .
   </Footer>
 )
+
+export default _Footer

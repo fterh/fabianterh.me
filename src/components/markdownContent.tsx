@@ -16,13 +16,8 @@ const ContentTypography = styled(Typography)`
     }
   }
 `
-const Section = styled(`div`)`
-  font-size: 1.2rem;
-  text-align: left;
-  padding: 0 1rem;
-`
 
-export default (props: { htmlContent: string }) => {
+const _MarkdownContent = (props: { htmlContent: string }) => {
   return (
     <Card
       sx={{
@@ -36,3 +31,5 @@ export default (props: { htmlContent: string }) => {
     </Card>
   )
 }
+
+export default _MarkdownContent

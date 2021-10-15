@@ -15,11 +15,6 @@ const PostDate = (props: { children: JSX.Element; postDate: string }) => {
   return <_PostDate dateTime={props.postDate}>{props.children}</_PostDate>
 }
 
-const PostTag = styled(`span`)`
-  font-family: ${Theme.typography.fontFamilyMonospace};
-  font-size: 0.85rem;
-`
-
 const buildMediumUrl = (username: string, uniqueSlug: string): string => {
   const baseMediumUrl = "https://medium.com/"
   return baseMediumUrl + `@${username}/${uniqueSlug}`
@@ -37,15 +32,16 @@ const Page = ({ data }: { data: any }) => {
       <Typography mb={1}>
         I started out writing articles on LeetCode-style questions to help me
         learn better. Later on, I ventured into technical articles on my
-        personal projects on topics I couldn't find clear answers to. Today, I
-        write broadly about things I believe will add value to the world 🌎.
+        personal projects on topics I couldn&apos;t find clear answers to.
+        Today, I write broadly about things I believe will add value to the
+        world 🌎.
       </Typography>
-      {posts.map((_post: any) => {
+      {posts.map((_post: any, i: number) => {
         const post = _post.node
         const tags: { name: string }[] = post.virtuals.tags
 
         return (
-          <Card variant="elevation" sx={{ marginBottom: 1 }}>
+          <Card key={i} variant="elevation" sx={{ marginBottom: 1 }}>
             <CardContent>
               <Typography
                 component={PostDate}
@@ -75,6 +71,7 @@ const Page = ({ data }: { data: any }) => {
                 const separator = index === tags.length - 1 ? "" : ", "
                 return (
                   <Typography
+                    key={index}
                     component="span"
                     color="text.secondary"
                     sx={{
