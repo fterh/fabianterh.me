@@ -1,19 +1,38 @@
-import { Card, CardContent, Link, Typography } from "@mui/material"
+import { Card, CardContent, Typography } from "@mui/material"
 import { graphql } from "gatsby"
 import React from "react"
-import { styled } from "@mui/material/styles"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme from "../theme"
 
-// Wrap to use semantic element attribute `postDate`
-const _PostDate = styled(`time`)`
+const PostDate = styled.time`
   font-family: ${Theme.typography.fontFamilyMonospace};
 `
-const PostDate = (props: { children: JSX.Element; postDate: string }) => {
-  return <_PostDate dateTime={props.postDate}>{props.children}</_PostDate>
-}
+
+const PostTitle = styled.h3`
+  a {
+    color: ${Theme.colors.primaryDark};
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  margin-bottom: 0.4rem;
+`
+
+const PostSubtitle = styled.h4`
+  color: ${Theme.colors.textSecondary};
+  font-style: italic;
+`
+
+const PostTag = styled.span`
+  font-family: ${Theme.typography.fontFamilyMonospace};
+  font-size: 0.85rem;
+`
 
 const buildMediumUrl = (username: string, uniqueSlug: string): string => {
   const baseMediumUrl = "https://medium.com/"
@@ -26,62 +45,39 @@ const Page = ({ data }: { data: any }) => {
   return (
     <Layout>
       <SEO title="Writings" />
-      <Typography mb={1} variant="h1">
-        Showcase of my thought bytes.
-      </Typography>
-      <Typography mb={1}>
+      <h2>Showcase of my thought bytes.</h2>
+      <p>
         I started out writing articles on LeetCode-style questions to help me
         learn better. Later on, I ventured into technical articles on my
-        personal projects on topics I couldn&apos;t find clear answers to.
-        Today, I write broadly about things I believe will add value to the
-        world 🌎.
-      </Typography>
-      {posts.map((_post: any, i: number) => {
+        personal projects on topics I couldn't find clear answers to. Today, I
+        write broadly about things I believe will add value to the world 🌎.
+      </p>
+      {posts.map((_post: any) => {
         const post = _post.node
         const tags: { name: string }[] = post.virtuals.tags
 
         return (
-          <Card key={i} variant="elevation" sx={{ marginBottom: 1 }}>
+          <Card variant="outlined" style={{ marginBottom: `1rem` }}>
             <CardContent>
-              <Typography
-                component={PostDate}
-                postDate="{post.firstPublishedAt}"
-              >
+              <PostDate dateTime={post.firstPublishedAt}>
                 {post.firstPublishedAt}
-              </Typography>
-
-              <Typography
-                component={`h2`}
-                variant="h6"
-                sx={{ fontWeight: `bold` }}
-              >
-                <Link
+              </PostDate>
+              <PostTitle>
+                <a
                   href={buildMediumUrl(post.author.username, post.uniqueSlug)}
                   target="_blank"
-                  underline="hover"
                 >
                   {post.title}
-                </Link>
-              </Typography>
-
-              <Typography mb={1} variant="subtitle1">
-                {post.virtuals.subtitle}
-              </Typography>
+                </a>
+              </PostTitle>
+              <PostSubtitle>{post.virtuals.subtitle}</PostSubtitle>
               {tags.map((tag, index) => {
                 const separator = index === tags.length - 1 ? "" : ", "
                 return (
-                  <Typography
-                    key={index}
-                    component="span"
-                    color="text.secondary"
-                    sx={{
-                      fontFamily: Theme.typography.fontFamilyMonospace,
-                      fontSize: `0.9rem`,
-                    }}
-                  >
+                  <PostTag>
                     #{tag.name}
                     {separator}
-                  </Typography>
+                  </PostTag>
                 )
               })}
             </CardContent>
