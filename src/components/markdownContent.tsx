@@ -5,7 +5,6 @@ import { styled } from "@mui/material/styles"
 import themeMaterial from "../themeMaterial"
 
 const ContentTypography = styled(Typography)`
-  font-size: 1.2rem;
   margin-bottom: 1rem;
 
   a {
