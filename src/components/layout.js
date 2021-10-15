@@ -9,12 +9,14 @@ import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import { ThemeProvider } from "@mui/material"
 
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 import "../style.css"
 import Theme from "../theme"
+import themeMaterial from "../themeMaterial"
 
 const Background = styled.div`
   display: flex;
@@ -34,12 +36,11 @@ const Main = styled.main`
   max-width: ${Theme.layout.maxWidth};
 `
 
-const Layout = ({ centered, children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
           title_short
         }
       }
@@ -47,18 +48,19 @@ const Layout = ({ centered, children }) => {
   `)
 
   return (
-    <Background>
-      <Header siteTitle={data.site.siteMetadata.title_short} />
-      <Body>
-        <Main style={centered && { textAlign: `center` }}>{children}</Main>
-      </Body>
-      <Footer />
-    </Background>
+    <ThemeProvider theme={themeMaterial}>
+      <Background>
+        <Header siteTitle={data.site.siteMetadata.title_short} />
+        <Body>
+          <Main>{children}</Main>
+        </Body>
+        <Footer />
+      </Background>
+    </ThemeProvider>
   )
 }
 
 Layout.propTypes = {
-  centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 

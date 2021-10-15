@@ -6,35 +6,27 @@ import {
   faMedium,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons"
-import { graphql } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import { styled } from "@mui/material/styles"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
 import LinkCard from "../components/linkCard"
+import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
-const Section = styled(`div`)`
-  font-size: 1.2rem;
-  text-align: left;
-  padding: 0 1rem;
+const Typewriter = styled(`div`)`
+  display: flex;
+  justify-content: center;
 
-  h2 {
-    font-family: ${Theme.typography.fontFamilyMonospace};
-  }
-
-  div.typewriter {
-    display: flex;
-    justify-content: center;
-  }
-
-  div.typewriter div {
+  > div {
     text-align: ltr;
   }
 
-  div.typewriter h2 {
+  > div > h2 {
+    font-family: ${Theme.typography.fontFamilyMonospace};
     margin: 0 auto 0.5rem auto;
     border-right: 0.15em solid orange;
     white-space: nowrap;
@@ -118,82 +110,69 @@ const LinksCardContent = styled(CardContent)`
   }
 `
 
-const ContentSection = styled(`div`)`
-  padding: 1rem 0;
-
-  p {
-    margin: 0;
-  }
-`
-
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
-    <Layout centered>
+    <Layout>
       <SEO title="Home" />
-      <Section>
-        <IntroPart>
-          <div className="text-section">
-            <div className="typewriter">
-              <div>
-                <h2>Hello world!</h2>
-              </div>
+      <IntroPart>
+        <div className="text-section">
+          <Typewriter>
+            <div>
+              <h2>Hello world!</h2>
             </div>
-            <Name>I'm Fabian.</Name>
-            <ContentSection
-              dangerouslySetInnerHTML={{
-                __html: data.allMarkdownRemark.nodes[0].html,
-              }}
-            />
-          </div>
+          </Typewriter>
+          <Name>I&apos;m Fabian.</Name>
+          <StaticQuery
+            query={graphql`
+              query {
+                markdownRemark(frontmatter: { title: { eq: "About" } }) {
+                  frontmatter {
+                    title
+                  }
+                  html
+                }
+              }
+            `}
+            render={(data) => {
+              return <MarkdownContent htmlContent={data.markdownRemark.html} />
+            }}
+          />
+        </div>
 
-          <AvatarWrapper>
-            <Avatar />
-          </AvatarWrapper>
-        </IntroPart>
+        <AvatarWrapper>
+          <Avatar />
+        </AvatarWrapper>
+      </IntroPart>
 
-        <LinksSection>
-          <Card variant="outlined">
-            <LinksCardContent>
-              <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-                Blog
-              </LinkCard>
-              <LinkCard
-                icon={faTwitterSquare}
-                url="https://twitter.com/fabianterh"
-              >
-                Twitter
-              </LinkCard>
-              <LinkCard icon={faGithub} url="https://github.com/fterh">
-                Github
-              </LinkCard>
-              <LinkCard
-                icon={faLinkedin}
-                url="https://linkedin.com/in/fabianterh/"
-              >
-                Linkedin
-              </LinkCard>
-            </LinksCardContent>
+      <LinksSection>
+        <Card variant="outlined">
+          <LinksCardContent>
+            <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+              Blog
+            </LinkCard>
+            <LinkCard
+              icon={faTwitterSquare}
+              url="https://twitter.com/fabianterh"
+            >
+              Twitter
+            </LinkCard>
+            <LinkCard icon={faGithub} url="https://github.com/fterh">
+              Github
+            </LinkCard>
+            <LinkCard
+              icon={faLinkedin}
+              url="https://linkedin.com/in/fabianterh/"
+            >
+              Linkedin
+            </LinkCard>
+          </LinksCardContent>
 
-            {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
-            <CardContent sx={{ display: `none` }}></CardContent>
-          </Card>
-        </LinksSection>
-      </Section>
+          {/* Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
+          <CardContent sx={{ display: `none` }}></CardContent>
+        </Card>
+      </LinksSection>
     </Layout>
   )
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query {
-    allMarkdownRemark {
-      nodes {
-        frontmatter {
-          title
-        }
-        html
-      }
-    }
-  }
-`

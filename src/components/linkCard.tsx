@@ -39,7 +39,7 @@ export default class LinkCard extends React.Component<
   LinkCardProps,
   LinkCardState
 > {
-  constructor(props) {
+  constructor(props: any) {
     super(props)
     this.state = { hover: false }
   }

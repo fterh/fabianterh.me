@@ -24,7 +24,7 @@ const Theme = {
   typography: {
     footerFontSize: `0.8rem`,
     fontFamily: `Roboto, sans-serif`,
-    fontFamilyMonospace: `Roboto Mono, monospace`,
+    fontFamilyMonospace: `"Noto Sans Mono", monospace`,
   },
 }
 
