@@ -3,7 +3,7 @@ import React from "react"
 
 import themeMaterial from "../themeMaterial"
 
-export default (props: { htmlContent: string }) => {
+const MarkdownContent = (props: { htmlContent: string }) => {
   return (
     <Card
       sx={{
@@ -27,3 +27,5 @@ export default (props: { htmlContent: string }) => {
     </Card>
   )
 }
+
+export default MarkdownContent

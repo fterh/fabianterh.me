@@ -128,7 +128,7 @@ const IndexPage = () => {
                 <h2>Hello world!</h2>
               </div>
             </Typewriter>
-            <Name>I'm Fabian.</Name>
+            <Name>I&apos;m Fabian.</Name>
             <StaticQuery
               query={graphql`
                 query {
