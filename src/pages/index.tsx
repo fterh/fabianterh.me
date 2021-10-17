@@ -20,9 +20,7 @@ import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
 const Section = styledComponents(`div`)`
-  font-size: 1.2rem;
   text-align: left;
-  padding: 0 1rem;
 `
 
 const Typewriter = styledComponents(`div`)`
