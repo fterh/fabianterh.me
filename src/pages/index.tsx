@@ -8,7 +8,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import { graphql, StaticQuery } from "gatsby"
 import React from "react"
+import styledComponents from "styled-components"
 import { styled } from "@mui/material/styles"
+import Typography from "@mui/material/Typography"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
@@ -17,13 +19,13 @@ import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
-const Section = styled(`div`)`
+const Section = styledComponents(`div`)`
   font-size: 1.2rem;
   text-align: left;
   padding: 0 1rem;
 `
 
-const Typewriter = styled(`div`)`
+const Typewriter = styledComponents(`div`)`
   display: flex;
   justify-content: center;
 
@@ -60,7 +62,7 @@ const Typewriter = styled(`div`)`
   }
 `
 
-const IntroPart = styled(`div`)`
+const IntroPart = styledComponents(`div`)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,39 +71,20 @@ const IntroPart = styled(`div`)`
   @media (max-width: ${Breakpoints.tablet}) {
     flex-direction: column;
   }
-
-  > div.text-section {
-    @media (min-width: ${Breakpoints.tablet}) {
-      width: 50%;
-    }
-  }
 `
 
-const AvatarWrapper = styled(`div`)`
-  height: 300px;
-  width: 300px;
-  margin-left: 50px;
-
-  @media (max-width: ${Breakpoints.mobile}) {
-    height: 200px;
-    width: 200px;
-  }
-
-  @media (max-width: ${Breakpoints.tablet}) {
-    margin: 0;
-  }
+const IntroTextSection = styledComponents(`div`)`
+@media (min-width: ${Breakpoints.tablet}) {
+  width: 50%;
+}
 `
 
-const Name = styled(`h1`)`
+const Name = styled(Typography)`
   ${Mixins.gradientedText}
   font-family: ${Theme.typography.fontFamily};
   font-size: 3rem;
   text-align: center;
   margin: 0;
-`
-
-const LinksSection = styled(`div`)`
-  margin-top: 2rem;
 `
 
 const LinksCardContent = styled(CardContent)`
@@ -122,7 +105,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Section>
         <IntroPart>
-          <div className="text-section">
+          <IntroTextSection>
             <Typewriter>
               <div>
                 <h2>Hello world!</h2>
@@ -144,40 +127,35 @@ const IndexPage = () => {
                 <MarkdownContent htmlContent={data.markdownRemark.html} />
               )}
             />
-          </div>
-
-          <AvatarWrapper>
-            <Avatar />
-          </AvatarWrapper>
+          </IntroTextSection>
+          <Avatar />
         </IntroPart>
 
-        <LinksSection>
-          <Card variant="outlined">
-            <LinksCardContent>
-              <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-                Blog
-              </LinkCard>
-              <LinkCard
-                icon={faTwitterSquare}
-                url="https://twitter.com/fabianterh"
-              >
-                Twitter
-              </LinkCard>
-              <LinkCard icon={faGithub} url="https://github.com/fterh">
-                Github
-              </LinkCard>
-              <LinkCard
-                icon={faLinkedin}
-                url="https://linkedin.com/in/fabianterh/"
-              >
-                Linkedin
-              </LinkCard>
-            </LinksCardContent>
+        <Card sx={{ marginTop: `2rem` }}>
+          <LinksCardContent>
+            <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
+              Blog
+            </LinkCard>
+            <LinkCard
+              icon={faTwitterSquare}
+              url="https://twitter.com/fabianterh"
+            >
+              Twitter
+            </LinkCard>
+            <LinkCard icon={faGithub} url="https://github.com/fterh">
+              Github
+            </LinkCard>
+            <LinkCard
+              icon={faLinkedin}
+              url="https://linkedin.com/in/fabianterh/"
+            >
+              Linkedin
+            </LinkCard>
+          </LinksCardContent>
 
-            {/*Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
-            <CardContent sx={{ display: `none` }}></CardContent>
-          </Card>
-        </LinksSection>
+          {/*Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
+          <CardContent sx={{ display: `none` }}></CardContent>
+        </Card>
       </Section>
     </Layout>
   )
