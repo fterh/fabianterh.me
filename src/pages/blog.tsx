@@ -1,19 +1,10 @@
 import { Card, CardContent, Link, Typography } from "@mui/material"
 import { graphql } from "gatsby"
 import React from "react"
-import { styled } from "@mui/material/styles"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme from "../theme"
-
-// Wrap to use semantic element attribute `postDate`
-const _PostDate = styled(`time`)`
-  font-family: ${Theme.typography.fontFamilyMonospace};
-`
-const PostDate = (props: { children: JSX.Element; postDate: string }) => (
-  <_PostDate dateTime={props.postDate}>{props.children}</_PostDate>
-)
 
 const buildMediumUrl = (username: string, uniqueSlug: string): string => {
   const baseMediumUrl = "https://medium.com/"
@@ -43,7 +34,9 @@ const Page = ({ data }: { data: any }) => {
         return (
           <Card key={index} variant="elevation" sx={{ marginBottom: 1 }}>
             <CardContent>
-              <Typography component={PostDate} postDate={post.firstPublishedAt}>
+              <Typography
+                sx={{ fontFamily: Theme.typography.fontFamilyMonospace }}
+              >
                 {post.firstPublishedAt}
               </Typography>
 
