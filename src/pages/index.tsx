@@ -84,7 +84,7 @@ const Name = styled(Typography)`
   font-family: ${Theme.typography.fontFamily};
   font-size: 3rem;
   text-align: center;
-  margin: 0;
+  margin-bottom: 1rem;
 `
 
 const LinksCardContent = styled(CardContent)`
@@ -99,7 +99,16 @@ const LinksCardContent = styled(CardContent)`
   }
 `
 
-const IndexPage = () => {
+const getMarkdownHtmlContent = (data: any, title: string) => {
+  console.log(data)
+  const nodes: [any] = data.allMarkdownRemark.edges
+  return nodes.filter((node) => {
+    console.log(node.node.frontmatter.title)
+    return node.node.frontmatter.title === title
+  })[0].node.html
+}
+
+const IndexPage = (props: { data: any }) => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -112,24 +121,17 @@ const IndexPage = () => {
               </div>
             </Typewriter>
             <Name>I&apos;m Fabian.</Name>
-            <StaticQuery
-              query={graphql`
-                query {
-                  markdownRemark(frontmatter: { title: { eq: "About" } }) {
-                    frontmatter {
-                      title
-                    }
-                    html
-                  }
-                }
-              `}
-              render={(data) => (
-                <MarkdownContent htmlContent={data.markdownRemark.html} />
-              )}
+            <MarkdownContent
+              htmlContent={getMarkdownHtmlContent(props.data, "About")}
             />
           </IntroTextSection>
           <Avatar />
         </IntroPart>
+
+        <MarkdownContent
+          title="Featured Work"
+          htmlContent={getMarkdownHtmlContent(props.data, "Featured Work")}
+        />
 
         <Card sx={{ marginTop: `2rem` }}>
           <LinksCardContent>
@@ -162,3 +164,18 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query Query {
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  }
+`
