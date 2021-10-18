@@ -38,7 +38,7 @@ export default createTheme({
       fontSize: `1.25rem`,
     },
     body1: {
-      fontSize: `1.1rem`,
+      fontSize: `1rem`,
     },
     subtitle1: {
       fontStyle: `italic`,

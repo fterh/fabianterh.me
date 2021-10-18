@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { IconDefinition } from "@fortawesome/fontawesome-common-types"
 import React from "react"
 import styled from "styled-components"
 
@@ -9,14 +10,12 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 // Fix huge icon flash: https://github.com/FortAwesome/react-fontawesome/issues/234
 config.autoAddCss = false
 
-const Card = styled.h3`
+const IconWrapper = styled.span`
   margin: 0;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
 
   a {
     color: ${Theme.colors.primaryDark};
-    display: flex;
-    font-size: 1.2rem;
     text-decoration: none;
 
     &:focus,
@@ -35,18 +34,18 @@ type LinkCardState = {
   hover: boolean
 }
 
-export default class LinkCard extends React.Component<
+export default class SocialLink extends React.Component<
   LinkCardProps,
   LinkCardState
 > {
-  constructor(props: any) {
+  constructor(props: { icon: IconDefinition; url: string }) {
     super(props)
     this.state = { hover: false }
   }
 
   render() {
     return (
-      <Card>
+      <IconWrapper>
         <a
           href={this.props.url}
           target="_new"
@@ -60,11 +59,10 @@ export default class LinkCard extends React.Component<
             color={
               this.state.hover ? Theme.colors.primary : Theme.colors.primaryDark
             }
+            size="lg"
           />
-          <span>&nbsp;</span>
-          {this.props.children}
         </a>
-      </Card>
+      </IconWrapper>
     )
   }
 }

@@ -1,12 +1,4 @@
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-  faTwitterSquare,
-} from "@fortawesome/free-brands-svg-icons"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import styledComponents from "styled-components"
 import { styled } from "@mui/material/styles"
@@ -14,15 +6,13 @@ import Typography from "@mui/material/Typography"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
-import LinkCard from "../components/linkCard"
 import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
+import Socials from "../components/socials"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
 const Section = styledComponents(`div`)`
-  font-size: 1.2rem;
   text-align: left;
-  padding: 0 1rem;
 `
 
 const Typewriter = styledComponents(`div`)`
@@ -84,22 +74,18 @@ const Name = styled(Typography)`
   font-family: ${Theme.typography.fontFamily};
   font-size: 3rem;
   text-align: center;
-  margin: 0;
+  margin-bottom: 1rem;
 `
 
-const LinksCardContent = styled(CardContent)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const getMarkdownHtmlContent = (data: any, title: string) => {
+  console.log(data)
+  const nodes: [any] = data.allMarkdownRemark.edges
+  return nodes.filter((node) => {
+    return node.node.frontmatter.title === title
+  })[0].node.html
+}
 
-  @media (min-width: ${Breakpoints.mobile}) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`
-
-const IndexPage = () => {
+const IndexPage = (props: { data: any }) => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -112,53 +98,36 @@ const IndexPage = () => {
               </div>
             </Typewriter>
             <Name>I&apos;m Fabian.</Name>
-            <StaticQuery
-              query={graphql`
-                query {
-                  markdownRemark(frontmatter: { title: { eq: "About" } }) {
-                    frontmatter {
-                      title
-                    }
-                    html
-                  }
-                }
-              `}
-              render={(data) => (
-                <MarkdownContent htmlContent={data.markdownRemark.html} />
-              )}
+            <MarkdownContent
+              htmlContent={getMarkdownHtmlContent(props.data, "About")}
             />
+            <Socials />
           </IntroTextSection>
           <Avatar />
         </IntroPart>
 
-        <Card sx={{ marginTop: `2rem` }}>
-          <LinksCardContent>
-            <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-              Blog
-            </LinkCard>
-            <LinkCard
-              icon={faTwitterSquare}
-              url="https://twitter.com/fabianterh"
-            >
-              Twitter
-            </LinkCard>
-            <LinkCard icon={faGithub} url="https://github.com/fterh">
-              Github
-            </LinkCard>
-            <LinkCard
-              icon={faLinkedin}
-              url="https://linkedin.com/in/fabianterh/"
-            >
-              Linkedin
-            </LinkCard>
-          </LinksCardContent>
-
-          {/*Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
-          <CardContent sx={{ display: `none` }}></CardContent>
-        </Card>
+        <MarkdownContent
+          title="Featured Work"
+          htmlContent={getMarkdownHtmlContent(props.data, "Featured Work")}
+        />
       </Section>
     </Layout>
   )
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query Query {
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  }
+`

@@ -22,6 +22,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-remark-line-breaks`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

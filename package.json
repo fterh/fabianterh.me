@@ -25,6 +25,7 @@
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-styled-components": "^4.0.0",
     "gatsby-plugin-typescript": "^3.0.0",
+    "gatsby-remark-line-breaks": "^1.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-source-medium": "^3.14.0",
     "gatsby-transformer-remark": "^4.11.0",
@@ -58,7 +59,7 @@
   "license": "MIT",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "npm run typecheck && gatsby build",
+    "build": "npm run lint && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md,ts,tsx}\"",
     "start": "npm run develop",
