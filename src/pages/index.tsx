@@ -1,12 +1,4 @@
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-  faTwitterSquare,
-} from "@fortawesome/free-brands-svg-icons"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import styledComponents from "styled-components"
 import { styled } from "@mui/material/styles"
@@ -14,9 +6,9 @@ import Typography from "@mui/material/Typography"
 
 import Avatar from "../components/avatar"
 import Layout from "../components/layout"
-import LinkCard from "../components/linkCard"
 import MarkdownContent from "../components/markdownContent"
 import SEO from "../components/seo"
+import Socials from "../components/socials"
 import Theme, { Breakpoints, Mixins } from "../theme"
 
 const Section = styledComponents(`div`)`
@@ -85,23 +77,10 @@ const Name = styled(Typography)`
   margin-bottom: 1rem;
 `
 
-const LinksCardContent = styled(CardContent)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (min-width: ${Breakpoints.mobile}) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`
-
 const getMarkdownHtmlContent = (data: any, title: string) => {
   console.log(data)
   const nodes: [any] = data.allMarkdownRemark.edges
   return nodes.filter((node) => {
-    console.log(node.node.frontmatter.title)
     return node.node.frontmatter.title === title
   })[0].node.html
 }
@@ -122,6 +101,7 @@ const IndexPage = (props: { data: any }) => {
             <MarkdownContent
               htmlContent={getMarkdownHtmlContent(props.data, "About")}
             />
+            <Socials />
           </IntroTextSection>
           <Avatar />
         </IntroPart>
@@ -130,32 +110,6 @@ const IndexPage = (props: { data: any }) => {
           title="Featured Work"
           htmlContent={getMarkdownHtmlContent(props.data, "Featured Work")}
         />
-
-        <Card sx={{ marginTop: `2rem` }}>
-          <LinksCardContent>
-            <LinkCard icon={faMedium} url="https://medium.com/@fabianterh">
-              Blog
-            </LinkCard>
-            <LinkCard
-              icon={faTwitterSquare}
-              url="https://twitter.com/fabianterh"
-            >
-              Twitter
-            </LinkCard>
-            <LinkCard icon={faGithub} url="https://github.com/fterh">
-              Github
-            </LinkCard>
-            <LinkCard
-              icon={faLinkedin}
-              url="https://linkedin.com/in/fabianterh/"
-            >
-              Linkedin
-            </LinkCard>
-          </LinksCardContent>
-
-          {/*Insert a phantom CardContent here to remove last-child styling on LinksCardContent */}
-          <CardContent sx={{ display: `none` }}></CardContent>
-        </Card>
       </Section>
     </Layout>
   )
